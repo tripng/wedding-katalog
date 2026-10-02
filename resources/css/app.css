@@ -1,0 +1,125 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+/* Base reset matching template */
+@layer base {
+  html, body {
+    @apply m-0 p-0;
+  }
+
+  body {
+    @apply overscroll-none;
+  }
+
+  main > :first-child {
+    @apply mt-0;
+  }
+
+  main > :last-child {
+    @apply mb-0;
+  }
+
+  ::-webkit-scrollbar {
+    @apply hidden;
+  }
+}
+
+/* Template-specific spacing tokens referenced via class names like mt-space-xl */
+@custom-spacing space-xs 0.25rem;
+@custom-spacing space-sm 0.5rem;
+@custom-spacing space-md 1rem;
+@custom-spacing space-lg 1.5rem;
+@custom-spacing space-xl 3rem;
+@custom-spacing space-lg-x 4.5rem;
+
+@custom-spacing gutter 1.5rem;
+@custom-spacing margin 3rem;
+
+/* Template font classes */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400 900;
+  src: url('https://fonts.gstatic.com/s/playfairdisplay/v38/1r9aoeMi9HChstnCBcEv3f6t0xho6Jk.woff2');
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 300 800;
+  src: url('https://fonts.gstatic.com/s/plusjakartasans/v25/lJwG-pwucwEdoW5213jCXKdm5Q7wYVt6m5pXb8M0k5w.woff2');
+}
+
+/* Template theme colors (Material 3 tokens from tailwind config) */
+@theme {
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  --color-primary: #010000;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #1f1b18;
+  --color-on-primary-container: #8a837e;
+  --color-primary-fixed: #eae1db;
+  --color-primary-fixed-dim: #cdc5c0;
+  --color-on-primary-fixed: #1f1b18;
+  --color-on-primary-fixed-variant: #4b4642;
+  --color-primary-fixed-dimmable: #eae1db;
+
+  --color-secondary: #825432;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #fdbf95;
+  --color-on-secondary-container: #784c2b;
+  --color-secondary-fixed: #ffdcc6;
+  --color-secondary-fixed-dim: #f7ba90;
+  --color-on-secondary-fixed: #301400;
+  --color-on-secondary-fixed-variant: #663d1d;
+  --color-secondary-fixed-dimmable: #ffdcc6;
+
+  --color-tertiary: #000000;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #141e11;
+  --color-on-tertiary-container: #3f4a3a;
+  --color-tertiary-fixed: #dae6d1;
+  --color-tertiary-fixed-dim: #becab6;
+  --color-on-tertiary-fixed: #141e11;
+  --color-on-tertiary-fixed-variant: #3f4a3a;
+  --color-tertiary-fixed-dimmable: #dae6d1;
+
+  --color-surface: #fbf9f6;
+  --color-on-surface: #1b1c1a;
+  --color-surface-dim: #dbdad7;
+  --color-surface-bright: #fbf9f6;
+  --color-surface-container: #efeeeb;
+  --color-surface-container-low: #f5f3f0;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-high: #eae8e5;
+  --color-surface-container-highest: #e4e2df;
+  --color-inverse-surface: #30312f;
+  --color-inverse-on-surface: #f2f0ed;
+  --color-surface-tint: #635d59;
+
+  --color-outline: #7e756f;
+  --color-outline-variant: #d0c4bd;
+  --color-inverse-primary: #cdc5c0;
+
+  --color-on-background: #1b1c1a;
+  --color-background: #fbf9f6;
+
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-display: 'Playfair Display', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+
+  --font-label-sm: 0.75rem;
+  --font-label-md: 0.875rem;
+  --font-label-lg: 1rem;
+  --font-body-sm: 0.875rem;
+  --font-body-md: 1rem;
+  --font-body-lg: 1.125rem;
+  --font-headline-sm: 1.25rem;
+  --font-headline-md: 1.5rem;
+  --font-headline-lg: 1.875rem;
+  --font-display-lg: 2.5rem;
+}
