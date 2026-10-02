@@ -26,7 +26,7 @@
   }
 }
 
-/* Template-specific spacing tokens referenced via class names like mt-space-xl */
+/* Template-specific spacing tokens (referenced via class names) */
 @custom-spacing space-xs 0.25rem;
 @custom-spacing space-sm 0.5rem;
 @custom-spacing space-md 1rem;
@@ -37,22 +37,7 @@
 @custom-spacing gutter 1.5rem;
 @custom-spacing margin 3rem;
 
-/* Template font classes */
-@font-face {
-  font-family: 'Playfair Display';
-  font-style: normal;
-  font-weight: 400 900;
-  src: url('https://fonts.gstatic.com/s/playfairdisplay/v38/1r9aoeMi9HChstnCBcEv3f6t0xho6Jk.woff2');
-}
-
-@font-face {
-  font-family: 'Plus Jakarta Sans';
-  font-style: normal;
-  font-weight: 300 800;
-  src: url('https://fonts.gstatic.com/s/plusjakartasans/v25/lJwG-pwucwEdoW5213jCXKdm5Q7wYVt6m5pXb8M0k5w.woff2');
-}
-
-/* Template theme colors (Material 3 tokens from tailwind config) */
+/* Template theme colors (Material 3 tokens from original tailwind config) */
 @theme {
   --color-error: #ba1a1a;
   --color-on-error: #ffffff;
@@ -111,15 +96,106 @@
 
   --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --font-display: 'Playfair Display', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+}
 
-  --font-label-sm: 0.75rem;
-  --font-label-md: 0.875rem;
-  --font-label-lg: 1rem;
-  --font-body-sm: 0.875rem;
-  --font-body-md: 1rem;
-  --font-body-lg: 1.125rem;
-  --font-headline-sm: 1.25rem;
-  --font-headline-md: 1.5rem;
-  --font-headline-lg: 1.875rem;
-  --font-display-lg: 2.5rem;
+/* Custom typography utilities matching the template's class names.
+   Template uses text-* and font-* classes as semantic typography tokens
+   (font-size + family), not as Tailwind's default text-* color utilities. */
+@layer components {
+
+  /* Display */
+  .font-display-lg,
+  .text-display-lg {
+    font-family: 'Playfair Display', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 3rem;
+  }
+
+  /* Headline */
+  .font-headline-lg,
+  .text-headline-lg {
+    font-family: 'Playfair Display', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 2.25rem;
+  }
+  .font-headline-md,
+  .text-headline-md {
+    font-family: 'Playfair Display', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2rem;
+  }
+  .font-headline-sm,
+  .text-headline-sm {
+    font-family: 'Playfair Display', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.75rem;
+  }
+
+  /* Body */
+  .font-body-lg,
+  .text-body-lg {
+    font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.75rem;
+  }
+  .font-body-md,
+  .text-body-md {
+    font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+  }
+  .font-body-sm,
+  .text-body-sm {
+    font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+  }
+
+  /* Label */
+  .font-label-lg,
+  .text-label-lg {
+    font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+  }
+  .font-label-md,
+  .text-label-md {
+    font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+  }
+  .font-label-sm,
+  .text-label-sm {
+    font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1rem;
+  }
+
+  /* Spacing classes */
+  .mt-space-xl { margin-top: 3rem; }
+  .pt-space-xl { padding-top: 3rem; }
+  .pb-space-lg { padding-bottom: 1.5rem; }
+  .pb-space-xl { padding-bottom: 3rem; }
+  .px-margin { padding-left: 3rem; padding-right: 3rem; }
+  .py-space-xs { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+  .gap-space-sm { gap: 0.5rem; }
+  .gap-space-md { gap: 1rem; }
+  .gap-space-xs { gap: 0.25rem; }
+  .gap-space-xl { gap: 3rem; }
+  .space-y-space-md > :not([hidden]) ~ :not([hidden]) { margin-top: 1rem; margin-bottom: 0; }
+  .space-y-space-xs > :not([hidden]) ~ :not([hidden]) { margin-top: 0.25rem; margin-bottom: 0; }
+  .space-y-space-sm > :not([hidden]) ~ :not([hidden]) { margin-top: 0.5rem; margin-bottom: 0; }
+  .space-y-space-xl > :not([hidden]) ~ :not([hidden]) { margin-top: 3rem; margin-bottom: 0; }
+  .items-center { align-items: center; }
+  .shadow-xs { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); }
 }
